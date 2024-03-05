@@ -4,6 +4,8 @@
 
 In this repository, I go through some of the ways you can parse and process the location translation / altnames / alternative names / location name in a foreign language database from Geonames.org.
 
+> Please note that this database is in active development.
+
 The alternames database contains geoname_id, language, and the name of the location in that language.
 
 ![CSV file](image-1.png)
@@ -49,6 +51,14 @@ Getting the altname using the included JSON file:
 {'pt': 'Oslo', 'en': 'Oslo', 'ko': '오슬로', 'ru': 'Осло', 'ja': 'オスロ', 'ar': 'أوسلو', 'es': 'Oslo', 'zh': '奥斯陆', 'de': 'Oslo', 'fr': 'Oslo'}
 ```
 
+Aside from the ISO language code, the dataset also contains the `preferred` (preferred or official name) and `shortname` (shortname for the location) values.
+
+Notes / Subjective Decisions:
+
+> This is the beginning of a public database project. So, your opinion matters. Please open an issue to provide feedback.
+
+- Note that for rows where the `preferred` ISO language is `en`, we have removed them as if the `preferred` ISO language is not present, the fallback value should default to English.
+- Where multiple entries are made for the same language, we have chosen the first entry. There obviously a better solution for this.
 
 The included notebook and databases can be used with a variety of IPinfo IP databases that include location information.
 
